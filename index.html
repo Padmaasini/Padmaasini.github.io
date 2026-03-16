@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Padmaasini Thulasirajan — AI Engineer & Data Scientist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #ffffff;
+      --bg: #f8f7f4;
+      --surface: #ffffff;
+      --border: #e5e2db;
+      --border-dark: #d1cdc4;
+      --navy: #1a2744;
+      --navy-light: #2d3f6b;
+      --accent: #2563eb;
+      --accent-light: #eff4ff;
+      --accent-muted: #93aee8;
+      --green: #0d6e4a;
+      --green-light: #ecfdf5;
+      --pink: #be2f6a;
+      --pink-light: #fdf2f8;
+      --text: #1a1a1a;
+      --text-secondary: #4b5563;
+      --text-muted: #9ca3af;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+    .nav-brand {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── WRAPPER ── */
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 5rem 0;
+    }
+    .hero-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 2.5s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+    .hero-name {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 0.4rem;
+    }
+    .hero-title {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+    }
+    .hero-bio {
+      font-size: 0.97rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.15s;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--navy-light); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-secondary);
+      border: 1px solid var(--border-dark);
+    }
+    .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
+
+    /* Photo block */
+    .photo-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .photo-frame {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    /* ── REPLACE THIS IMG SRC WITH YOUR PHOTO ── */
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      text-align: center;
+      padding: 1rem;
+    }
+    .photo-placeholder svg { opacity: 0.4; }
+    .photo-location {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 4.5rem 0; }
+    .section-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .section-header { margin-bottom: 2.5rem; }
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p { color: var(--text-secondary); font-size: 0.97rem; margin-bottom: 0.9rem; }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .stats-col { display: flex; flex-direction: column; gap: 1rem; min-width: 190px; }
+    .stat-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1.25rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Lora', serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      display: block;
+    }
+    .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+    /* ── PROJECTS ── */
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .project-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .project-card:hover {
+      border-color: var(--accent-muted);
+      box-shadow: 0 4px 20px rgba(37,99,235,0.07);
+    }
+    .project-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .project-badge {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+    }
+    .badge-live { background: var(--green-light); color: var(--green); }
+    .badge-research { background: var(--pink-light); color: var(--pink); }
+    .project-title {
+      font-family: 'Lora', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .project-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; }
+    .stack-tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      border-radius: 4px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .skill-group {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+    .skill-group-name {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.85rem;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-pill {
+      font-size: 0.8rem;
+      padding: 0.28rem 0.7rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      color: var(--text);
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { display: flex; flex-direction: column; }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 0 2rem;
+      padding-bottom: 2.5rem;
+      position: relative;
+    }
+    .tl-left { padding-top: 0.35rem; }
+    .tl-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .tl-right { border-left: 2px solid var(--border); padding-left: 2rem; position: relative; }
+    .tl-dot {
+      position: absolute;
+      left: -5px;
+      top: 0.5rem;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+    }
+    .tl-role { font-weight: 600; color: var(--navy); font-size: 0.97rem; }
+    .tl-company { font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem; font-weight: 500; }
+    .tl-desc { font-size: 0.87rem; color: var(--text-secondary); }
+    .tl-item:last-child { padding-bottom: 0; }
+
+    /* ── RESEARCH ── */
+    .research-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--pink);
+      border-radius: 8px;
+      padding: 1.75rem;
+    }
+    .research-title { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
+    .research-venue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--pink);
+      background: var(--pink-light);
+      padding: 0.2rem 0.65rem;
+      border-radius: 20px;
+      margin-bottom: 0.85rem;
+    }
+    .research-desc { font-size: 0.9rem; color: var(--text-secondary); }
+
+    /* ── CERTS ── */
+    .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+    .cert-icon-wrap {
+      width: 34px; height: 34px;
+      border-radius: 6px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-name { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .cert-issuer { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
+
+    /* ── CONTACT ── */
+    .contact-card {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 3rem;
+      text-align: center;
+    }
+    .contact-card .section-eyebrow { color: var(--accent-muted); }
+    .contact-heading {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      color: #fff;
+      margin: 0.4rem 0 0.7rem;
+    }
+    .contact-sub { color: #9aadcf; font-size: 0.92rem; margin-bottom: 2rem; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
+    .btn-white { background: #fff; color: var(--navy); }
+    .btn-white:hover { background: #f0f4ff; }
+    .btn-outline-white { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.75rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── FADE IN ── */
+    .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade.in { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .photo-block { flex-direction: row; align-items: center; }
+      .container { padding: 0 1.25rem; }
+      .about-grid, .projects-grid, .skills-grid, .certs-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 1fr; }
+      .tl-right { border-left: none; padding-left: 0; }
+      .tl-dot { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Padmaasini T.</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Open to PhD &amp; AI roles in Europe</div>
+      <h1 class="hero-name">Padmaasini<br>Thulasirajan</h1>
+      <p class="hero-title">AI Engineer · Data Scientist · Product Builder</p>
+      <p class="hero-bio">
+        7.5+ years of experience across enterprise consulting, BI analytics, and applied AI. I build production-grade AI systems centred on human needs — from dementia care assistants to agentic recruitment pipelines.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://lektes.nimbus-24.com" target="_blank" class="btn btn-outline">Live App ↗</a>
+        <a href="https://github.com/Padmaasini" target="_blank" class="btn btn-outline">GitHub ↗</a>
+      </div>
+    </div>
+
+    <!-- PHOTO: Replace the placeholder below with your actual image tag -->
+    <div class="photo-block">
+      <div class="photo-frame">
+        <!--
+          TO ADD YOUR PHOTO:
+          Replace the div below with:
+          <img src="photo.jpg" alt="Padmaasini Thulasirajan" />
+          
+          Then upload photo.jpg to the same GitHub repo folder.
+        -->
+        <div class="photo-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span>Add your photo here<br><code style="font-size:0.7rem">photo.jpg</code></span>
+        </div>
+      </div>
+      <p class="photo-location">📍 Hyderabad, India</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container fade">
+    <div class="section-header">
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-title">Building AI that works for people</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm an <strong>AI Engineer and Data Scientist</strong> with a rare combination of enterprise consulting depth and hands-on ML engineering experience. My career spans IT consulting, BI analytics, and data integration before moving fully into applied AI product development.</p>
+        <p>My work sits at the intersection of <strong>LLMs, agentic systems, and human-centred design</strong>. I've shipped two production AI systems and contributed to peer-reviewed research, with a focus on building technology that is safe, explainable, and genuinely useful.</p>
+        <p>I'm currently pursuing a <strong>European PhD in HCI and Conversational AI</strong> and am open to research collaborations and senior AI roles across Europe.</p>
+      </div>
+      <div class="stats-col">
+        <div class="stat-item">
+          <span class="stat-num">7.5+</span>
+          <div class="stat-label">Years of experience</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">2</span>
+          <div class="stat-label">Live AI products shipped</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">9.07</span>
+          <div class="stat-label">MSc CGPA / 10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section section-alt" id="projects">
+  <div class="container fade">
+    <div class="section-header">
+      <p class="section-eyebrow">Projects</p>
+      <h2 class="section-title">Production AI Systems</h2>
+    </div>
+    <div class="projects-grid">
+
+      <a class="project-card" href="https://github.com/Padmaasini/jarvis" target="_blank">
+        <div class="project-top">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a2744" stroke-width="1.5"><path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span class="project-badge badge-research">HHAI 2026 Submission</span>
+        </div>
+        <div class="project-title">Jarvis — Dementia Care AI</div>
+        <div class="project-desc">
+          Personalised conversational assistant for early-stage dementia, deployed on Google Cloud. Features a hybrid NLU routing engine with LLaMA 3.1-8B, three-layer safety architecture (distress detection, toxic content filtering, graceful degradation), and proactive medication reminders via SSE. All SUS scores rated Excellent.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">Flask</span>
+          <span class="stack-tag">LLaMA 3.1</span>
+          <span class="stack-tag">Groq API</span>
+          <span class="stack-tag">GCP App Engine</span>
+          <span class="stack-tag">Firestore</span>
+          <span class="stack-tag">SSE</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://lektes.nimbus-24.com" target="_blank">
+        <div class="project-top">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a2744" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span class="project-badge badge-live">Live · v0.1.0</span>
+        </div>
+        <div class="project-title">Lektes — Agentic Recruitment AI</div>
+        <div class="project-desc">
+          LangGraph-powered agentic pipeline that automates CV screening — parses resumes (PDF & DOCX), verifies LinkedIn and GitHub profiles, scores candidates with a weighted composite model, and delivers ranked reports to HR. Designed as middleware compatible with Greenhouse, Lever, and Slack.
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">FastAPI</span>
+          <span class="stack-tag">LangGraph</span>
+          <span class="stack-tag">Gemini API</span>
+          <span class="stack-tag">SQLite</span>
+          <span class="stack-tag">Render Cloud</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="container fade">
+    <div class="section-header">
+      <p class="section-eyebrow">Skills</p>
+      <h2 class="section-title">Technical Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-name">AI & Machine Learning</div>
+        <div class="skill-pills">
+          <span class="skill-pill">LLMs</span>
+          <span class="skill-pill">LangGraph</span>
+          <span class="skill-pill">LangChain</span>
+          <span class="skill-pill">RAG</span>
+          <span class="skill-pill">NLP</span>
+          <span class="skill-pill">Agentic Systems</span>
+          <span class="skill-pill">Prompt Engineering</span>
+          <span class="skill-pill">Conversational AI</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Programming Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">R</span>
+          <span class="skill-pill">SQL</span>
+          <span class="skill-pill">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Cloud & Infrastructure</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Google Cloud (GCP)</span>
+          <span class="skill-pill">Microsoft Azure</span>
+          <span class="skill-pill">FastAPI</span>
+          <span class="skill-pill">Flask</span>
+          <span class="skill-pill">Docker</span>
+          <span class="skill-pill">REST APIs</span>
+          <span class="skill-pill">Render</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Data & Business Intelligence</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Tableau</span>
+          <span class="skill-pill">QlikView</span>
+          <span class="skill-pill">Cognos</span>
+          <span class="skill-pill">Informatica Cloud</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Developer Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Git & GitHub</span>
+          <span class="skill-pill">JIRA</span>
+          <span class="skill-pill">ServiceNow</span>
+          <span class="skill-pill">Docker</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-name">Consulting & Process</div>
+        <div class="skill-pills">
+          <span class="skill-pill">BPMN</span>
+          <span class="skill-pill">ITIL</span>
+          <span class="skill-pill">Workshop Facilitation</span>
+          <span class="skill-pill">Stakeholder Management</span>
+          <span class="skill-pill">Change Management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section section-alt" id="experience">
+  <div class="container fade">
+    <div class="section-header">
+      <p class="section-eyebrow">Experience</p>
+      <h2 class="section-title">Career Timeline</h2>
+    </div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Dec 2023<br>Aug 2024</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-dot"></div>
+          <div class="tl-role">BI Consultant</div>
+          <div class="tl-company">Capgemini · Boehringer Ingelheim (Life Sciences)</div>
+          <div class="tl-desc">Led Informatica Cloud data integration across 250+ interfaces including Veeva CRM, IQVIA, Salesforce, and SAP Concur. Onboarded and mentored a team of 8–10 to full operational independence in 3 weeks. Recognised with the XtraMile Award twice for exceptional client service.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Dec 2021<br>Dec 2023</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Consultant</div>
+          <div class="tl-company">Capgemini · Boehringer Ingelheim (Life Sciences)</div>
+          <div class="tl-desc">Led a five-member team delivering operational support with full client-facing accountability. Managed end-to-end release procedures via ITIL, ServiceNow, and JIRA. Delivered Tableau and QlikView reporting for business-critical data visualisation across multiple geographies.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Nov 2016<br>Dec 2021</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Programmer Analyst</div>
+          <div class="tl-company">Cognizant · Anthem HealthCare & TMG HealthCare (US)</div>
+          <div class="tl-desc">Delivered US healthcare analytics covering HIPAA-compliant data processing, Cognos reporting, and cube management. Built a macro-based automation tool that eliminated a significant manual provider agreement workflow. Managed full offshore client communication without escalations.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">2024<br>Present</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-dot"></div>
+          <div class="tl-role">Inventory & Dashboard Volunteer</div>
+          <div class="tl-company">Babytheek · Brussels, Belgium</div>
+          <div class="tl-desc">Built a KPI dashboard for the library management system, automated manual follow-up workflows, and created an onboarding guide for new volunteers.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH & CERTS -->
+<section class="section" id="research">
+  <div class="container fade">
+    <div class="section-header">
+      <p class="section-eyebrow">Research</p>
+      <h2 class="section-title">Publications</h2>
+    </div>
+    <div class="research-card">
+      <div class="research-title">Jarvis: A Human-Centered Conversational Personal Assistant for Independent Living in Early-Stage Dementia</div>
+      <div class="research-venue">HHAI 2026 · Submission #65 · IOS Press · Under Review</div>
+      <div class="research-desc">Submitted to the International Conference on Hybrid Human-Artificial Intelligence. Presents the design, implementation, and usability evaluation of a personalised conversational AI system for individuals in early-stage dementia, with a focus on safety, dignity, and proactive care support.</div>
+    </div>
+
+    <div style="margin-top:3rem;">
+      <p class="section-eyebrow">Certifications</p>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Power BI Data Analyst Associate</div>
+            <div class="cert-issuer">Microsoft · August 2024</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Applied Data Science</div>
+            <div class="cert-issuer">IIT Palakkad · June 2023</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Azure AI Fundamentals (AI-900)</div>
+            <div class="cert-issuer">Microsoft · April 2021</div>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon-wrap">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <div class="cert-name">Azure Data Fundamentals (DP-900)</div>
+            <div class="cert-issuer">Microsoft · March 2021</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="container fade">
+    <div class="contact-card">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="contact-heading">Let's Connect</h2>
+      <p class="contact-sub">Open to PhD opportunities, research collaborations, and senior AI roles in Europe.</p>
+      <div class="contact-links">
+        <a href="mailto:padmaasinit94@hotmail.com" class="btn btn-white">✉ Email Me</a>
+        <a href="https://github.com/Padmaasini" target="_blank" class="btn btn-outline-white">GitHub ↗</a>
+        <a href="https://nimbus-24.com" target="_blank" class="btn btn-outline-white">nimbus-24.com ↗</a>
+        <a href="https://lektes.nimbus-24.com" target="_blank" class="btn btn-outline-white">Lektes ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Padmaasini Thulasirajan · github.com/Padmaasini · nimbus-24.com
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
