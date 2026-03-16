@@ -38,7 +38,6 @@
       line-height: 1.7;
     }
 
-    /* ── NAV ── */
     nav {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -69,14 +68,12 @@
     }
     .nav-links a:hover { color: var(--accent); }
 
-    /* ── WRAPPER ── */
     .container {
       max-width: 1060px;
       margin: 0 auto;
       padding: 0 2.5rem;
     }
 
-    /* ── HERO ── */
     .hero {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -137,7 +134,6 @@
     }
     .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -152,10 +148,7 @@
       border: none;
       font-family: 'Inter', sans-serif;
     }
-    .btn-primary {
-      background: var(--navy);
-      color: #fff;
-    }
+    .btn-primary { background: var(--navy); color: #fff; }
     .btn-primary:hover { background: var(--navy-light); }
     .btn-outline {
       background: transparent;
@@ -164,7 +157,6 @@
     }
     .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
 
-    /* Photo block */
     .photo-block {
       display: flex;
       flex-direction: column;
@@ -183,33 +175,17 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    <div class="photo-frame">
-        <img src="photo.jpg" alt="Padmaasini Thulasirajan" />
-    </div>
-    
     .photo-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-    .photo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.75rem;
-      text-align: center;
-      padding: 1rem;
-    }
-    .photo-placeholder svg { opacity: 0.4; }
     .photo-location {
       font-size: 0.8rem;
       color: var(--text-muted);
       text-align: center;
     }
 
-    /* ── SECTIONS ── */
     .section { padding: 4.5rem 0; }
     .section-alt { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 
@@ -229,7 +205,6 @@
       color: var(--navy);
     }
 
-    /* ── ABOUT ── */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -255,7 +230,6 @@
     }
     .stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.1rem; }
 
-    /* ── PROJECTS ── */
     .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
     .project-card {
       background: var(--white);
@@ -301,7 +275,6 @@
       border-radius: 4px;
     }
 
-    /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .skill-group {
       background: var(--bg);
@@ -327,7 +300,6 @@
       color: var(--text);
     }
 
-    /* ── EXPERIENCE ── */
     .timeline { display: flex; flex-direction: column; }
     .tl-item {
       display: grid;
@@ -358,7 +330,6 @@
     .tl-desc { font-size: 0.87rem; color: var(--text-secondary); }
     .tl-item:last-child { padding-bottom: 0; }
 
-    /* ── RESEARCH ── */
     .research-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -381,7 +352,6 @@
     }
     .research-desc { font-size: 0.9rem; color: var(--text-secondary); }
 
-    /* ── CERTS ── */
     .certs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
     .cert-card {
       background: var(--white);
@@ -404,7 +374,6 @@
     .cert-name { font-size: 0.88rem; font-weight: 600; color: var(--text); line-height: 1.3; }
     .cert-issuer { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.15rem; }
 
-    /* ── CONTACT ── */
     .contact-card {
       background: var(--navy);
       border-radius: 12px;
@@ -425,7 +394,6 @@
     .btn-outline-white { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.25); }
     .btn-outline-white:hover { border-color: rgba(255,255,255,0.6); }
 
-    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 1.75rem;
@@ -435,11 +403,9 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── FADE IN ── */
     .fade { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
     .fade.in { opacity: 1; transform: translateY(0); }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav { padding: 0 1.25rem; }
       .nav-links { display: none; }
@@ -455,7 +421,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-brand" href="#">Padmaasini T.</a>
   <ul class="nav-links">
@@ -468,10 +433,10 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
+      <div class="hero-eyebrow">Open to PhD &amp; AI roles in Europe</div>
       <h1 class="hero-name">Padmaasini<br>Thulasirajan</h1>
       <p class="hero-title">AI Engineer · Data Scientist · Product Builder</p>
       <p class="hero-bio">
@@ -484,30 +449,15 @@
       </div>
     </div>
 
-    <!-- PHOTO: Replace the placeholder below with your actual image tag -->
     <div class="photo-block">
       <div class="photo-frame">
-        <!--
-          TO ADD YOUR PHOTO:
-          Replace the div below with:
-          <img src="photo.jpg" alt="Padmaasini Thulasirajan" />
-          
-          Then upload photo.jpg to the same GitHub repo folder.
-        -->
-        <div class="photo-placeholder">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-          <span>Add your photo here<br><code style="font-size:0.7rem">photo.jpg</code></span>
-        </div>
+        <img src="photo.jpg" alt="Padmaasini Thulasirajan" />
       </div>
-      <p class="photo-location">📍 Brussels, Belgium</p>
+      <p class="photo-location">📍 Hyderabad, India</p>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="section" id="about">
   <div class="container fade">
     <div class="section-header">
@@ -538,7 +488,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="section section-alt" id="projects">
   <div class="container fade">
     <div class="section-header">
@@ -553,9 +502,7 @@
           <span class="project-badge badge-research">HHAI 2026 Submission</span>
         </div>
         <div class="project-title">Jarvis — Dementia Care AI</div>
-        <div class="project-desc">
-          Personalised conversational assistant for early-stage dementia, deployed on Google Cloud. Features a hybrid NLU routing engine with LLaMA 3.1-8B, three-layer safety architecture (distress detection, toxic content filtering, graceful degradation), and proactive medication reminders via SSE. All SUS scores rated Excellent.
-        </div>
+        <div class="project-desc">Personalised conversational assistant for early-stage dementia, deployed on Google Cloud. Features a hybrid NLU routing engine with LLaMA 3.1-8B, three-layer safety architecture (distress detection, toxic content filtering, graceful degradation), and proactive medication reminders via SSE. All SUS scores rated Excellent.</div>
         <div class="project-stack">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">Flask</span>
@@ -573,9 +520,7 @@
           <span class="project-badge badge-live">Live · v0.1.0</span>
         </div>
         <div class="project-title">Lektes — Agentic Recruitment AI</div>
-        <div class="project-desc">
-          LangGraph-powered agentic pipeline that automates CV screening — parses resumes (PDF & DOCX), verifies LinkedIn and GitHub profiles, scores candidates with a weighted composite model, and delivers ranked reports to HR. Designed as middleware compatible with Greenhouse, Lever, and Slack.
-        </div>
+        <div class="project-desc">LangGraph-powered agentic pipeline that automates CV screening — parses resumes (PDF & DOCX), verifies LinkedIn and GitHub profiles, scores candidates with a weighted composite model, and delivers ranked reports to HR. Designed as middleware compatible with Greenhouse, Lever, and Slack.</div>
         <div class="project-stack">
           <span class="stack-tag">Python</span>
           <span class="stack-tag">FastAPI</span>
@@ -590,7 +535,6 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="section" id="skills">
   <div class="container fade">
     <div class="section-header">
@@ -665,7 +609,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section class="section section-alt" id="experience">
   <div class="container fade">
     <div class="section-header">
@@ -675,9 +618,7 @@
     <div class="timeline">
 
       <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-date">Dec 2023<br>Aug 2024</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Dec 2023<br>Aug 2024</div></div>
         <div class="tl-right">
           <div class="tl-dot"></div>
           <div class="tl-role">BI Consultant</div>
@@ -687,9 +628,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-date">Dec 2021<br>Dec 2023</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Dec 2021<br>Dec 2023</div></div>
         <div class="tl-right">
           <div class="tl-dot"></div>
           <div class="tl-role">Consultant</div>
@@ -699,9 +638,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-date">Nov 2016<br>Dec 2021</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">Nov 2016<br>Dec 2021</div></div>
         <div class="tl-right">
           <div class="tl-dot"></div>
           <div class="tl-role">Programmer Analyst</div>
@@ -711,9 +648,7 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-left">
-          <div class="tl-date">2024<br>Present</div>
-        </div>
+        <div class="tl-left"><div class="tl-date">2024<br>Present</div></div>
         <div class="tl-right">
           <div class="tl-dot"></div>
           <div class="tl-role">Inventory & Dashboard Volunteer</div>
@@ -726,7 +661,6 @@
   </div>
 </section>
 
-<!-- RESEARCH & CERTS -->
 <section class="section" id="research">
   <div class="container fade">
     <div class="section-header">
@@ -783,7 +717,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="section section-alt" id="contact">
   <div class="container fade">
     <div class="contact-card">
