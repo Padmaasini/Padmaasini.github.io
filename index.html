@@ -465,7 +465,7 @@
       <div class="photo-frame">
         <img src="photo.jpg" alt="Padmaasini Thulasirajan" />
       </div>
-      <p class="photo-location">📍 Brussels, Belgium</p>
+      <p class="photo-location">📍 Chennai, India</p>
     </div>
   </div>
 </section>
@@ -480,7 +480,7 @@
       <div class="about-text">
         <p>I'm an <strong>AI Engineer and Data Scientist</strong> with a rare combination of enterprise consulting depth and hands-on ML engineering experience. My career spans IT consulting, BI analytics, and data integration before moving fully into applied AI product development.</p>
         <p>My work sits at the intersection of <strong>LLMs, agentic systems, and human-centred design</strong>. I've shipped two production AI systems and contributed to peer-reviewed research, with a focus on building technology that is safe, explainable, and genuinely useful.</p>
-        <p>I'm currently pursuing a <strong>European PhD in HCI and Conversational AI</strong> and am open to research collaborations and senior AI roles across Europe.</p>
+        <p>I'm open to research collaborations and senior AI engineering roles across Europe and India.</p>
       </div>
       </div>
     </div>
@@ -783,13 +783,14 @@
     <div class="contact-card">
       <p class="section-eyebrow">Get in Touch</p>
       <h2 class="contact-heading">Let's Connect</h2>
-      <p class="contact-sub">Open to PhD opportunities, research collaborations, and senior AI roles in Europe.</p>
+      <p class="contact-sub">Open to research collaborations and senior AI engineering roles across Europe and India.</p>
       <div class="contact-links">
         <a href="/cdn-cgi/l/email-protection#9eeefffaf3ffffedf7f0f7eaa7aadef6f1eaf3fff7f2b0fdf1f3" class="btn btn-white">✉ Email Me</a>
         <a href="https://linkedin.com/in/padmaasini-thulasirajan-39ba56a5" target="_blank" class="btn btn-outline-white">LinkedIn ↗</a>
         <a href="https://github.com/Padmaasini" target="_blank" class="btn btn-outline-white">GitHub ↗</a>
         <a href="https://nimbus-24.com" target="_blank" class="btn btn-outline-white">nimbus-24.com ↗</a>
         <a href="https://lektes.nimbus-24.com" target="_blank" class="btn btn-outline-white">Lektes ↗</a>
+        <a href="https://nimbus-24.com/cirrio.html" target="_blank" class="btn btn-outline-white">Cirrio ↗</a>
       </div>
     </div>
   </div>
@@ -799,6 +800,12 @@
   Padmaasini Thulasirajan · linkedin.com/in/padmaasini-thulasirajan-39ba56a5 · github.com/Padmaasini · nimbus-24.com
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script>
   const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) 
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
